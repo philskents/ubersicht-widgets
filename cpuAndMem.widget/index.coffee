@@ -38,6 +38,15 @@ style: """
     #mem-label
         width: 200px
         float: left
+    
+    .blink_me {
+         animation: blinker 1s linear infinite;
+         color: red
+    }
+
+    @keyframes blinker {  
+        50% { opacity: 0; } 
+    }
 """
 
 update: (output, domEl) ->
@@ -46,6 +55,7 @@ update: (output, domEl) ->
 
   if (data[1] > 1) 
       $(domEl).find('#mem').text 'HIGH'
+      $(domEl).find('#mem').addClass('blink_me');
   else 
       $(domEl).find('#mem').text 'NORMAL'
 
